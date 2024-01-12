@@ -4,7 +4,13 @@ import {IoHome, IoLogoWhatsapp} from 'react-icons/io5';
 
 export default function Header() {
   return (
-    <Box height="64px" width="100vw">
+    <Box
+      height="64px"
+      width="100vw"
+      position="fixed"
+      bgColor="white"
+      zIndex={2}
+    >
       <Container
         height="100%"
         display="flex"

@@ -51,6 +51,7 @@ export default function Banner() {
               display="flex"
               flexDirection={{base: 'column', md: 'row'}}
               justifyContent="space-between"
+              alignItems="flex-end"
               gap="2rem"
             >
               <Flex flexDirection="column" gap="1.5rem">

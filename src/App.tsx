@@ -4,6 +4,8 @@ import Banner from './components/Banner/Banner';
 import Footer from './components/Footer/Footer';
 import {useEffect, useState} from 'react';
 import Builders from './components/Builders/Builders';
+import About from './components/About/About';
+import Properties from './components/Properties/Properties';
 
 function App() {
   const [loading, setLoading] = useState(
@@ -25,6 +27,8 @@ function App() {
         <>
           <Banner />
           <Builders />
+          <About />
+          <Properties />
           <Footer />
         </>
       )}
