@@ -1,5 +1,5 @@
 import {Box, Container, Image, useColorModeValue} from '@chakra-ui/react';
-import Topic from '../Topic/Topic';
+import Topic from '../topic/topic';
 import AboutStory from '../../assets/img/about-story.svg';
 
 export default function About() {

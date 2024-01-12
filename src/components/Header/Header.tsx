@@ -6,7 +6,7 @@ import {
   IconButton,
   useColorModeValue,
 } from '@chakra-ui/react';
-import HeaderLink from '../HeaderLink/HeaderLink';
+import HeaderLink from '../header-link/header-link';
 import {IoHome, IoLogoWhatsapp} from 'react-icons/io5';
 
 export default function Header() {

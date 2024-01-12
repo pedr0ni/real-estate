@@ -15,6 +15,7 @@ import {
   IoLogoInstagram,
   IoLogoWhatsapp,
   IoMailOutline,
+  IoSunny,
 } from 'react-icons/io5';
 
 const CustomLink = ({children, ...props}: LinkProps) => {
@@ -53,8 +54,8 @@ export default function Footer() {
                 icon={<IoHome />}
               />
               <Text mt={2} color="gray.700" fontSize="md">
-                Inovação, excelência e parceria para o sucesso do seu projeto
-                online.
+                Explore nossas propriedades, encontre seu lar perfeito e comece
+                uma nova jornada.
               </Text>
             </Box>
             <HStack
@@ -63,7 +64,7 @@ export default function Footer() {
               justifyContent={{sm: 'space-between', md: 'normal'}}
             >
               <VStack spacing={4} alignItems="flex-start">
-                <Text fontSize="md" fontWeight="bold">
+                <Text color="gray.800" fontSize="md" fontWeight="bold">
                   Imóveis
                 </Text>
                 <VStack spacing={2} alignItems="flex-start" color="gray.500">
@@ -74,7 +75,7 @@ export default function Footer() {
                 </VStack>
               </VStack>
               <VStack spacing={4} alignItems="flex-start">
-                <Text fontSize="md" fontWeight="bold">
+                <Text color="gray.800" fontSize="md" fontWeight="bold">
                   Empresa
                 </Text>
                 <VStack spacing={2} alignItems="flex-start" color="gray.500">
@@ -105,22 +106,32 @@ export default function Footer() {
             </Text>
             <Stack spacing={2} direction="row">
               <IconButton
+                variant="ghost"
                 icon={<IoLogoWhatsapp />}
                 aria-label="WhatsApp"
-                colorScheme="whatsapp"
+                color="white"
                 fontSize="1.2rem"
               />
               <IconButton
                 icon={<IoMailOutline />}
+                variant="ghost"
                 aria-label="E-mail"
-                colorScheme="blue"
                 fontSize="1.2rem"
+                color="white"
               />
               <IconButton
+                variant="ghost"
                 icon={<IoLogoInstagram />}
                 aria-label="Instagram"
-                colorScheme="instagram"
                 fontSize="1.2rem"
+                color="white"
+              />
+              <IconButton
+                variant="ghost"
+                icon={<IoSunny />}
+                aria-label="Instagram"
+                fontSize="1.2rem"
+                color="white"
                 onClick={toggleColorMode}
               />
             </Stack>

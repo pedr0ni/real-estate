@@ -19,10 +19,10 @@ import {
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
-import Header from '../Header/Header';
-import AnimatedView from '../Animated/AnimatedView';
+import AnimatedView from '../animated/animated-view';
 import Bg from '../../assets/img/bg.svg';
 import Decorado1 from '../../assets/img/decorado-1.jpeg';
+import Header from '../header/header';
 
 export default function Banner() {
   const headerColor = useColorModeValue('gray.700', 'white');
@@ -57,6 +57,7 @@ export default function Banner() {
               justifyContent="space-between"
               alignItems="flex-end"
               gap="2rem"
+              mt="4rem"
             >
               <Flex flexDirection="column" gap="1.5rem">
                 <Heading color={headerColor} as="h1" size="2xl">

@@ -9,8 +9,8 @@ import {
   TabPanels,
   Tabs,
 } from '@chakra-ui/react';
-import Topic from '../Topic/Topic';
-import PropertyCard from './PropertyCard/PropertyCard';
+import Topic from '../topic/topic';
+import PropertyCard from './property-card/property-card';
 
 export default function Properties() {
   return (
