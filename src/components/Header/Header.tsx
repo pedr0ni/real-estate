@@ -1,14 +1,22 @@
-import {Box, Button, Container, Flex, IconButton} from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  IconButton,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import HeaderLink from '../HeaderLink/HeaderLink';
 import {IoHome, IoLogoWhatsapp} from 'react-icons/io5';
 
 export default function Header() {
+  const bgColor = useColorModeValue('white', 'gray.700');
   return (
     <Box
       height="64px"
       width="100vw"
       position="fixed"
-      bgColor="white"
+      bgColor={bgColor}
       zIndex={2}
     >
       <Container

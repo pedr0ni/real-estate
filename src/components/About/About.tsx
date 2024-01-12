@@ -1,10 +1,11 @@
-import {Box, Container, Image} from '@chakra-ui/react';
+import {Box, Container, Image, useColorModeValue} from '@chakra-ui/react';
 import Topic from '../Topic/Topic';
 import AboutStory from '../../assets/img/about-story.svg';
 
 export default function About() {
+  const bgColor = useColorModeValue('gray.200', 'gray.900');
   return (
-    <Box py="4rem" bgColor="gray.200">
+    <Box py="4rem" bgColor={bgColor}>
       <Container
         maxW="container.lg"
         display="flex"

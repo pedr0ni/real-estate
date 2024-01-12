@@ -8,6 +8,7 @@ import {
   Stack,
   Text,
   VStack,
+  useColorMode,
 } from '@chakra-ui/react';
 import {
   IoHome,
@@ -31,6 +32,8 @@ const CustomLink = ({children, ...props}: LinkProps) => {
 };
 
 export default function Footer() {
+  const {toggleColorMode} = useColorMode();
+
   return (
     <>
       <Box bgColor="purple.100">
@@ -118,6 +121,7 @@ export default function Footer() {
                 aria-label="Instagram"
                 colorScheme="instagram"
                 fontSize="1.2rem"
+                onClick={toggleColorMode}
               />
             </Stack>
           </Stack>

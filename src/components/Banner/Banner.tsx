@@ -17,6 +17,7 @@ import {
   TabPanels,
   Tabs,
   Text,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import Header from '../Header/Header';
 import AnimatedView from '../Animated/AnimatedView';
@@ -24,6 +25,9 @@ import Bg from '../../assets/img/bg.svg';
 import Decorado1 from '../../assets/img/decorado-1.jpeg';
 
 export default function Banner() {
+  const headerColor = useColorModeValue('gray.700', 'white');
+  const textColor = useColorModeValue('gray.600', 'white');
+
   return (
     <Box id="home">
       <Box
@@ -55,10 +59,10 @@ export default function Banner() {
               gap="2rem"
             >
               <Flex flexDirection="column" gap="1.5rem">
-                <Heading color="gray.700" as="h1" size="2xl">
+                <Heading color={headerColor} as="h1" size="2xl">
                   Seu novo empreendimento está aqui na Real Estate!
                 </Heading>
-                <Text color="gray.600">
+                <Text color={textColor}>
                   Descubra uma variedade de propriedades únicas - residências,
                   escritórios e terrenos - cada uma contando sua história. Com
                   detalhes envolventes, fotos deslumbrantes e uma busca
