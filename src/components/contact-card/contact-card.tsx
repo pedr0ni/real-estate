@@ -16,7 +16,7 @@ import {IoLogoWhatsapp} from 'react-icons/io5';
 
 export default function ContactCard() {
   return (
-    <Card minW="sm">
+    <Card minW="md">
       <CardHeader>
         <Heading size="md">Estou interessado!</Heading>
       </CardHeader>

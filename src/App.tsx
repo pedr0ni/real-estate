@@ -7,6 +7,15 @@ import PropertyDetails from './routes/property-details';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import ScrollToTop from './components/scroll-to-top/scroll-to-top';
+import {QueryClient, QueryClientProvider} from 'react-query';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000,
+    },
+  },
+});
 
 function App() {
   const [loading, setLoading] = useState(
@@ -20,21 +29,23 @@ function App() {
 
   return (
     <ChakraProvider theme={theme}>
-      {loading ? (
-        <Flex justifyContent="center" alignItems="center" h="100vh">
-          <Spinner color="brand.500" size="xl" />
-        </Flex>
-      ) : (
-        <BrowserRouter>
-          <ScrollToTop />
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/property" element={<PropertyDetails />} />
-          </Routes>
-          <Footer />
-        </BrowserRouter>
-      )}
+      <QueryClientProvider client={queryClient}>
+        {loading ? (
+          <Flex justifyContent="center" alignItems="center" h="100vh">
+            <Spinner color="brand.500" size="xl" />
+          </Flex>
+        ) : (
+          <BrowserRouter>
+            <ScrollToTop />
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/property/:id" element={<PropertyDetails />} />
+            </Routes>
+            <Footer />
+          </BrowserRouter>
+        )}
+      </QueryClientProvider>
     </ChakraProvider>
   );
 }

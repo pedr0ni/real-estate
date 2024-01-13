@@ -12,12 +12,27 @@ import {
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
-import Decorado from '../assets/img/decorado-1.jpeg';
 import Bg from '../assets/img/bg.svg';
 import ContactCard from '../components/contact-card/contact-card';
+import {useParams} from 'react-router-dom';
+import {useQuery} from 'react-query';
+import propertyService from '../services/property/property.service';
+import {useEffect, useState} from 'react';
 
 export default function PropertyDetails() {
+  const {id} = useParams();
   const priceColor = useColorModeValue('purple.500', 'purple.300');
+  const [image, setImage] = useState<string>();
+
+  const {data} = useQuery(['properties', id], () =>
+    propertyService.getPropertyById(id)
+  );
+
+  useEffect(() => {
+    if (data) {
+      setImage(data.image);
+    }
+  }, [data]);
 
   return (
     <Box
@@ -36,15 +51,13 @@ export default function PropertyDetails() {
             <CardBody>
               <Stack direction="row" justifyContent="space-between">
                 <Stack>
-                  <Heading size="lg">
-                    Cobertura ao lado da lagoa do Taquaral
-                  </Heading>
-                  <Text>Rua José Luis Camargo Moreira, 202</Text>
+                  <Heading size="lg">{data?.title}</Heading>
+                  <Text>{data?.address}</Text>
                 </Stack>
 
                 <Stack alignItems="flex-end">
                   <Heading color={priceColor} size="lg">
-                    R$ 938.000
+                    R$ {data?.price}
                   </Heading>
                   <Text>R$ 8395,00/m²</Text>
                 </Stack>
@@ -62,15 +75,24 @@ export default function PropertyDetails() {
           gap="2rem"
         >
           <Card maxW="4xl">
-            <CardHeader>
-              <Flex justifyContent="space-between" alignItems="center">
-                {[1, 2, 3, 4].map(item => (
-                  <Image key={item} src={Decorado} w={160} />
+            <CardHeader overflowX="scroll" maxW="calc(100% - 20px)">
+              <Flex justifyContent="flex-start" alignItems="center" gap="1rem">
+                {data?.gallery.map(image => (
+                  <Image
+                    onClick={() => setImage(image)}
+                    cursor="pointer"
+                    key={image}
+                    src={image}
+                    w={160}
+                    _hover={{boxShadow: 'md'}}
+                  />
                 ))}
               </Flex>
-
-              <Image mt="1rem" src={Decorado} />
             </CardHeader>
+
+            <CardBody pt={0}>
+              <Image mt="1rem" src={image} />
+            </CardBody>
           </Card>
           <ContactCard />
         </Container>
@@ -84,25 +106,19 @@ export default function PropertyDetails() {
           alignItems="flex-start"
           gap="2rem"
         >
-          <Card maxW="4xl">
+          <Card minW="3xl">
             <CardHeader>
               <Heading size="md">Descrição</Heading>
             </CardHeader>
-            <CardBody>
-              Discover your own piece of paradise with the Seaside Serenity
-              Villa. T With an open floor plan, breathtaking ocean views from
-              every room, and direct access to a pristine sandy beach, this
-              property is the epitome of coastal living.
-            </CardBody>
+            <CardBody>{data?.description}</CardBody>
             <CardHeader>
               <Heading size="md">Propriedade</Heading>
             </CardHeader>
             <CardBody>
               <Stack direction="row">
-                <Tag colorScheme="purple">3 Quartos</Tag>
-                <Tag colorScheme="purple">2 Banheiros</Tag>
-                <Tag colorScheme="purple">Churrasqueira</Tag>
-                <Tag colorScheme="purple">2 Vagas</Tag>
+                {data?.features.map(feature => (
+                  <Tag colorScheme="purple">{feature}</Tag>
+                ))}
               </Stack>
             </CardBody>
             <CardHeader>
@@ -110,14 +126,13 @@ export default function PropertyDetails() {
             </CardHeader>
             <CardBody>
               <Stack direction="row">
-                <Tag colorScheme="purple">Academia</Tag>
-                <Tag colorScheme="purple">Piscina</Tag>
-                <Tag colorScheme="purple">Salão de Festas</Tag>
-                <Tag colorScheme="purple">Portaria 24h</Tag>
+                {data?.amenities.map(amenity => (
+                  <Tag colorScheme="purple">{amenity}</Tag>
+                ))}
               </Stack>
             </CardBody>
           </Card>
-          <Card minW="sm">
+          <Card minW="md">
             <CardHeader>
               <Heading size="md">Localização</Heading>
             </CardHeader>

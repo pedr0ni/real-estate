@@ -11,8 +11,12 @@ import {
 import Topic from '../topic/topic';
 import PropertyCard from './property-card/property-card';
 import BaseContainer from '../base-container/base-container';
+import {useQuery} from 'react-query';
+import propertyService from '../../services/property/property.service';
 
 export default function Properties() {
+  const {data} = useQuery('properties', propertyService.listProperties);
+
   return (
     <Box py="4rem">
       <Tabs variant="soft-rounded" colorScheme="purple">
@@ -44,9 +48,7 @@ export default function Properties() {
                   columns={{base: 1, sm: 3}}
                   spacing={{base: 6, sm: 4, md: 6}}
                 >
-                  <PropertyCard />
-                  <PropertyCard />
-                  <PropertyCard />
+                  {data?.map(property => <PropertyCard property={property} />)}
                 </SimpleGrid>
               </TabPanel>
               <TabPanel>Two!</TabPanel>

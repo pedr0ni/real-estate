@@ -12,8 +12,13 @@ import {
 
 import Decorado from '../../../assets/img/decorado-1.jpeg';
 import {Link} from 'react-router-dom';
+import {Property} from '../../../types/property';
 
-export default function PropertyCard() {
+interface PropertyCardProps {
+  property: Property;
+}
+
+export default function PropertyCard({property}: PropertyCardProps) {
   return (
     <Card maxW="sm" borderRadius="1rem">
       <Image
@@ -23,17 +28,20 @@ export default function PropertyCard() {
       />
       <CardBody>
         <Stack mt="2" spacing="3">
-          <Heading size="md">
-            Cobertura ao lado da lagoa do taquaral, Campinas/SP
-          </Heading>
+          <Heading size="md">{property.title}</Heading>
           <Text color="purple.600" fontSize="2xl" fontWeight="medium">
-            $450
+            R$ {property.price}
           </Text>
         </Stack>
       </CardBody>
       <CardFooter>
         <ButtonGroup spacing="2">
-          <Button as={Link} to="/property" variant="solid" colorScheme="purple">
+          <Button
+            as={Link}
+            to={`/property/${property._id}`}
+            variant="solid"
+            colorScheme="purple"
+          >
             Detalhes
           </Button>
           <Button variant="ghost" colorScheme="purple">
