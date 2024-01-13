@@ -11,6 +11,7 @@ import {
 } from '@chakra-ui/react';
 
 import Decorado from '../../../assets/img/decorado-1.jpeg';
+import {Link} from 'react-router-dom';
 
 export default function PropertyCard() {
   return (
@@ -32,7 +33,7 @@ export default function PropertyCard() {
       </CardBody>
       <CardFooter>
         <ButtonGroup spacing="2">
-          <Button variant="solid" colorScheme="purple">
+          <Button as={Link} to="/property" variant="solid" colorScheme="purple">
             Detalhes
           </Button>
           <Button variant="ghost" colorScheme="purple">

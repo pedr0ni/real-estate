@@ -6,8 +6,28 @@ import {
   IconButton,
   useColorModeValue,
 } from '@chakra-ui/react';
-import HeaderLink from '../header-link/header-link';
 import {IoHome, IoLogoWhatsapp} from 'react-icons/io5';
+import {Link} from 'react-router-dom';
+
+const items = [
+  {label: 'Home', to: '/'},
+  {
+    label: 'Imóveis',
+    to: '/properties',
+  },
+  {
+    label: 'Financie',
+    to: '/financie',
+  },
+  {
+    label: 'Vender imóvel',
+    to: '/vender-imovel',
+  },
+  {
+    label: 'Sobre',
+    to: '/sobre',
+  },
+];
 
 export default function Header() {
   const bgColor = useColorModeValue('white', 'gray.700');
@@ -36,11 +56,17 @@ export default function Header() {
             fontSize="20px"
             icon={<IoHome />}
           />
-          <HeaderLink>Home</HeaderLink>
-          <HeaderLink>Imóveis</HeaderLink>
-          <HeaderLink>Financie</HeaderLink>
-          <HeaderLink>Vender Imóvel</HeaderLink>
-          <HeaderLink>Sobre</HeaderLink>
+          {items.map(item => (
+            <Button
+              key={item.label}
+              as={Link}
+              variant="ghost"
+              colorScheme="gray"
+              to={item.to}
+            >
+              {item.label}
+            </Button>
+          ))}
         </Flex>
 
         <Button

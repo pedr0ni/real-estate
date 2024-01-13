@@ -2,14 +2,11 @@ import {ChakraProvider, Flex, Spinner} from '@chakra-ui/react';
 import theme from './theme/theme';
 import {useEffect, useState} from 'react';
 import Home from './routes/home';
-import {RouterProvider, createBrowserRouter} from 'react-router-dom';
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Home />,
-  },
-]);
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import PropertyDetails from './routes/property-details';
+import Header from './components/header/header';
+import Footer from './components/footer/footer';
+import ScrollToTop from './components/scroll-to-top/scroll-to-top';
 
 function App() {
   const [loading, setLoading] = useState(
@@ -28,7 +25,15 @@ function App() {
           <Spinner color="brand.500" size="xl" />
         </Flex>
       ) : (
-        <RouterProvider router={router} />
+        <BrowserRouter>
+          <ScrollToTop />
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/property" element={<PropertyDetails />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
       )}
     </ChakraProvider>
   );

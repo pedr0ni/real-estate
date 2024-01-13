@@ -33,8 +33,8 @@ export default function Builders() {
         alignItems="center"
         gap={{base: '1rem', md: 0}}
       >
-        {images.map(image => (
-          <Image src={image} filter="grayscale(100%)" />
+        {images.map((image, index) => (
+          <Image key={index} src={image} filter="grayscale(100%)" />
         ))}
       </Container>
     </Box>

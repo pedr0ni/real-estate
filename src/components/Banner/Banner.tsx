@@ -1,28 +1,16 @@
 import {
   Box,
-  Button,
-  Card,
-  CardBody,
-  CardHeader,
   Container,
   Flex,
-  FormControl,
-  FormLabel,
   Heading,
   Image,
-  Input,
-  Tab,
-  TabList,
-  TabPanel,
-  TabPanels,
-  Tabs,
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
 import AnimatedView from '../animated/animated-view';
 import Bg from '../../assets/img/bg.svg';
-import Decorado1 from '../../assets/img/decorado-1.jpeg';
-import Header from '../header/header';
+import Decorado from '../../assets/img/decorado-1.jpeg';
+import SearchCard from './search-card/search-card';
 
 export default function Banner() {
   const headerColor = useColorModeValue('gray.700', 'white');
@@ -41,8 +29,6 @@ export default function Banner() {
         backgroundPosition={{base: 'top', md: 'center'}}
         backgroundRepeat="no-repeat"
       >
-        <Header />
-
         <Flex
           marginTop={{base: '2rem', md: '6rem'}}
           justifyContent="center"
@@ -71,52 +57,9 @@ export default function Banner() {
                   ideal.
                 </Text>
 
-                <Image borderRadius="1rem" src={Decorado1} />
+                <Image borderRadius="1rem" src={Decorado} />
               </Flex>
-              <Card minW="sm" borderRadius="1rem">
-                <Tabs colorScheme="purple">
-                  <CardHeader>
-                    <TabList>
-                      <Tab flex={1}>Alugar</Tab>
-                      <Tab flex={1}>Comprar</Tab>
-                    </TabList>
-                  </CardHeader>
-                  <CardBody>
-                    <TabPanels>
-                      <TabPanel>
-                        <Flex gap="1rem" flexDirection="column">
-                          <FormControl>
-                            <FormLabel>Cidade</FormLabel>
-                            <Input placeholder="Campinas" />
-                          </FormControl>
-
-                          <FormControl>
-                            <FormLabel>Bairro</FormLabel>
-                            <Input placeholder="Mansões Santo Antônio" />
-                          </FormControl>
-
-                          <Flex gap="1rem">
-                            <FormControl flex={1}>
-                              <FormLabel>Valor máximo</FormLabel>
-                              <Input placeholder="R$ 1500,00" />
-                            </FormControl>
-
-                            <FormControl flex={1}>
-                              <FormLabel>Quartos</FormLabel>
-                              <Input placeholder="2" />
-                            </FormControl>
-                          </Flex>
-
-                          <Button colorScheme="purple">Buscar imóveis</Button>
-                        </Flex>
-                      </TabPanel>
-                      <TabPanel>
-                        <p>two!</p>
-                      </TabPanel>
-                    </TabPanels>
-                  </CardBody>
-                </Tabs>
-              </Card>
+              <SearchCard />
             </Container>
           </AnimatedView>
         </Flex>
