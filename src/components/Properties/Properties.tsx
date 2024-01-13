@@ -1,6 +1,5 @@
 import {
   Box,
-  Container,
   Flex,
   SimpleGrid,
   Tab,
@@ -11,14 +10,14 @@ import {
 } from '@chakra-ui/react';
 import Topic from '../topic/topic';
 import PropertyCard from './property-card/property-card';
+import BaseContainer from '../base-container/base-container';
 
 export default function Properties() {
   return (
     <Box py="4rem">
       <Tabs variant="soft-rounded" colorScheme="purple">
         <Flex flexDirection="column">
-          <Container
-            maxW="container.lg"
+          <BaseContainer
             display="flex"
             flexDirection={{base: 'column', md: 'row'}}
             justifyContent="space-between"
@@ -36,9 +35,9 @@ export default function Properties() {
               <Tab>Comprar</Tab>
               <Tab>Alugar</Tab>
             </TabList>
-          </Container>
+          </BaseContainer>
 
-          <Container maxW="container.lg" marginTop="2rem">
+          <BaseContainer marginTop="2rem">
             <TabPanels>
               <TabPanel>
                 <SimpleGrid
@@ -52,7 +51,7 @@ export default function Properties() {
               </TabPanel>
               <TabPanel>Two!</TabPanel>
             </TabPanels>
-          </Container>
+          </BaseContainer>
         </Flex>
       </Tabs>
     </Box>

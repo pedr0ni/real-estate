@@ -1,6 +1,5 @@
 import {
   Box,
-  Container,
   HStack,
   IconButton,
   Link,
@@ -17,6 +16,7 @@ import {
   IoMailOutline,
   IoSunny,
 } from 'react-icons/io5';
+import BaseContainer from '../base-container/base-container';
 
 const CustomLink = ({children, ...props}: LinkProps) => {
   return (
@@ -38,7 +38,7 @@ export default function Footer() {
   return (
     <>
       <Box bgColor="purple.100">
-        <Container maxW="container.lg" py="2rem">
+        <BaseContainer py="2rem">
           <Stack
             spacing={{base: 8, md: 0}}
             justifyContent="space-between"
@@ -87,11 +87,11 @@ export default function Footer() {
               </VStack>
             </HStack>
           </Stack>
-        </Container>
+        </BaseContainer>
       </Box>
 
       <Box bgColor="black" py="0.5rem">
-        <Container maxW="container.lg">
+        <BaseContainer>
           <Stack
             direction={{base: 'column', md: 'row'}}
             spacing={3}
@@ -136,7 +136,7 @@ export default function Footer() {
               />
             </Stack>
           </Stack>
-        </Container>
+        </BaseContainer>
       </Box>
     </>
   );

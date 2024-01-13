@@ -2,7 +2,6 @@ import {
   Box,
   Card,
   CardBody,
-  CardFooter,
   CardHeader,
   Container,
   Flex,
@@ -95,14 +94,17 @@ export default function PropertyDetails() {
               every room, and direct access to a pristine sandy beach, this
               property is the epitome of coastal living.
             </CardBody>
-            <CardFooter>
+            <CardHeader>
+              <Heading size="md">Propriedade</Heading>
+            </CardHeader>
+            <CardBody>
               <Stack direction="row">
                 <Tag colorScheme="purple">3 Quartos</Tag>
                 <Tag colorScheme="purple">2 Banheiros</Tag>
                 <Tag colorScheme="purple">Churrasqueira</Tag>
                 <Tag colorScheme="purple">2 Vagas</Tag>
               </Stack>
-            </CardFooter>
+            </CardBody>
             <CardHeader>
               <Heading size="md">Condmínio</Heading>
             </CardHeader>

@@ -1,6 +1,5 @@
 import {
   Box,
-  Container,
   Flex,
   Heading,
   Image,
@@ -11,6 +10,7 @@ import AnimatedView from '../animated/animated-view';
 import Bg from '../../assets/img/bg.svg';
 import Decorado from '../../assets/img/decorado-1.jpeg';
 import SearchCard from './search-card/search-card';
+import BaseContainer from '../base-container/base-container';
 
 export default function Banner() {
   const headerColor = useColorModeValue('gray.700', 'white');
@@ -36,8 +36,7 @@ export default function Banner() {
           flexDirection="column"
         >
           <AnimatedView animation="from-bottom">
-            <Container
-              maxW="container.lg"
+            <BaseContainer
               display="flex"
               flexDirection={{base: 'column', md: 'row'}}
               justifyContent="space-between"
@@ -60,7 +59,7 @@ export default function Banner() {
                 <Image borderRadius="1rem" src={Decorado} />
               </Flex>
               <SearchCard />
-            </Container>
+            </BaseContainer>
           </AnimatedView>
         </Flex>
       </Box>

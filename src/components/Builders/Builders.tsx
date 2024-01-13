@@ -5,6 +5,7 @@ import Logitech from '../../assets/img/logitech.svg';
 import Netflix from '../../assets/img/netflix.svg';
 import Samsung from '../../assets/img/samsung.svg';
 import Spotify from '../../assets/img/spotify.svg';
+import BaseContainer from '../base-container/base-container';
 
 const images = [Amazon, Google, Logitech, Netflix, Samsung, Spotify];
 
@@ -25,8 +26,7 @@ export default function Builders() {
         </Text>
       </Container>
 
-      <Container
-        maxW="container.lg"
+      <BaseContainer
         display="flex"
         flexDirection={{base: 'column', md: 'row'}}
         justifyContent="space-between"
@@ -36,7 +36,7 @@ export default function Builders() {
         {images.map((image, index) => (
           <Image key={index} src={image} filter="grayscale(100%)" />
         ))}
-      </Container>
+      </BaseContainer>
     </Box>
   );
 }

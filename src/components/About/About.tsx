@@ -1,13 +1,14 @@
-import {Box, Container, Image, useColorModeValue} from '@chakra-ui/react';
+import {Box, Image, useColorModeValue} from '@chakra-ui/react';
 import Topic from '../topic/topic';
 import AboutStory from '../../assets/img/about-story.svg';
+import BaseContainer from '../base-container/base-container';
 
 export default function About() {
   const bgColor = useColorModeValue('gray.200', 'gray.900');
+
   return (
     <Box py="4rem" bgColor={bgColor}>
-      <Container
-        maxW="container.lg"
+      <BaseContainer
         display="flex"
         flexDirection={{base: 'column', md: 'row'}}
         justifyContent="space-between"
@@ -21,7 +22,7 @@ export default function About() {
         />
 
         <Image src={AboutStory} boxSize="md" />
-      </Container>
+      </BaseContainer>
     </Box>
   );
 }

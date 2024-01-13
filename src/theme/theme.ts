@@ -16,6 +16,15 @@ const theme = extendTheme({
     body: 'Roboto, sans-serif',
     heading: 'Roboto, sans-serif',
   },
+  components: {
+    Container: {
+      sizes: {
+        lg: {
+          maxW: 'container.lg',
+        },
+      },
+    },
+  },
 });
 
 export default theme;

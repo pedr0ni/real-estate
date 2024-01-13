@@ -1,13 +1,13 @@
 import {
   Box,
   Button,
-  Container,
   Flex,
   IconButton,
   useColorModeValue,
 } from '@chakra-ui/react';
 import {IoHome, IoLogoWhatsapp} from 'react-icons/io5';
 import {Link} from 'react-router-dom';
+import BaseContainer from '../base-container/base-container';
 
 const items = [
   {label: 'Home', to: '/'},
@@ -38,13 +38,13 @@ export default function Header() {
       position="fixed"
       bgColor={bgColor}
       zIndex={2}
+      boxShadow="sm"
     >
-      <Container
+      <BaseContainer
         height="100%"
         display="flex"
         alignItems="center"
         justifyContent={{base: 'center', md: 'space-between'}}
-        maxW="container.lg"
         flexDirection={{base: 'column', md: 'row'}}
       >
         <Flex gap="1rem" display={{base: 'none', md: 'flex'}}>
@@ -76,7 +76,7 @@ export default function Header() {
         >
           Contato
         </Button>
-      </Container>
+      </BaseContainer>
     </Box>
   );
 }
