@@ -1,4 +1,4 @@
-import {Box, Container, Spinner} from '@chakra-ui/react';
+import {Box, Container} from '@chakra-ui/react';
 import Bg from '../assets/img/bg.svg';
 import ContactCard from '../components/property/contact-card/contact-card';
 import {useParams} from 'react-router-dom';
@@ -13,8 +13,8 @@ import LoadingPage from '../components/loading-page/loading-page';
 export default function PropertyDetails() {
   const {id} = useParams();
 
-  const {data, isFetching} = useQuery(['properties', id], () =>
-    propertyService.getPropertyById(id)
+  const {data, isFetching} = useQuery(['properties', id], ({signal}) =>
+    propertyService.getPropertyById(id, signal)
   );
 
   return isFetching ? (

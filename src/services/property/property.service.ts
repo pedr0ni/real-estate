@@ -1,3 +1,4 @@
+import {GenericAbortSignal} from 'axios';
 import {Property} from '../../types/property';
 import api from '../api';
 
@@ -8,8 +9,11 @@ class PropertyService {
     return data;
   }
 
-  async getPropertyById(id?: string) {
-    const {data} = await api.get<Property>(`/property/${id}`);
+  async getPropertyById(
+    id: string | undefined,
+    signal: GenericAbortSignal | undefined
+  ) {
+    const {data} = await api.get<Property>(`/property/${id}`, {signal});
 
     return data;
   }
